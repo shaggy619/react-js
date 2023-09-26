@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../logo.png";
+import PropTypes from "prop-types";
 
 export default function Navbar(props) {
   return (
@@ -104,3 +105,13 @@ export default function Navbar(props) {
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  firstButton: PropTypes.string,
+  secondButton: PropTypes.string,
+};
+
+Navbar.defaultProps = {
+  firstButton: "Home Btn",
+  secondButton: "About",
+};
