@@ -107,7 +107,7 @@ export default function Navbar(props) {
 }
 
 Navbar.propTypes = {
-  firstButton: PropTypes.string,
+  firstButton: PropTypes.string.isRequired,
   secondButton: PropTypes.string,
 };
 
