@@ -1,10 +1,13 @@
+// import logo from "./logo.png";
 import "./App.css";
+import Form from "./components/Form";
 import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <>
-      <Navbar firstButton="Home" thirdButton="Contact Us" />
+      <Navbar title="TextCraft" />
+      <Form />
     </>
   );
 }
