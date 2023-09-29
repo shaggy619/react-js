@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
 .App {
   text-align: center;
 }
@@ -89,6 +90,7 @@ h1 {
   font-size: 1.6rem;
   text-align: center;
   margin: 1rem 0;
+  color: #282c34;
 }
 
 textarea {
@@ -98,8 +100,9 @@ textarea {
 }
 
 .btn {
-  margin-top: 1rem;
-  text-align: center;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 button {
@@ -108,16 +111,51 @@ button {
   font-size: 1rem;
   border-radius: 4px;
   cursor: pointer;
+  /* display: inline-block; */
+  /* margin-right: 1rem; */
+  box-shadow: 1px 1px 3px rgba(136, 136, 136, 0.89);
 }
 
 .btn .btn-1 {
   background-color: rgb(119, 8, 255);
   color: white;
-  box-shadow: 1px 1px 3px rgba(136, 136, 136, 0.89);
 }
 
 .btn .btn-1:hover {
   background-color: rgba(119, 8, 255, 0.861);
+}
+
+.btn .btn-2 {
+  background-color: #ffb703;
+  color: white;
+}
+
+.btn .btn-2:hover {
+  background-color: #ffb803d5;
+}
+
+.btn .btn-3 {
+  background-color: #023047;
+  color: white;
+}
+
+.btn .btn-3:hover {
+  background-color: #023047dd;
+}
+
+.btn .btn-4 {
+  background-color: #fc8955;
+  color: white;
+}
+
+h2,
+p {
+  color: #282c34;
+}
+
+.summary {
+  margin-top: 1rem;
+  font-size: 1.2rem;
 }
 
 .no-resize {
