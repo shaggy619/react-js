@@ -23,12 +23,14 @@ export default function Form(props) {
             placeholder="Enter Your Message..."
             value={text}
             rows={10}
-            cols={95}
             onChange={handleOnChange}
             onFocus={handleOnFocus}
+            className="no-resize"
           ></textarea>
           <div className="btn">
-            <button onClick={handleOnclick}>Change To UpperCase</button>
+            <button className="btn-1" onClick={handleOnclick}>
+              Change To UpperCase
+            </button>
           </div>
         </div>
       </div>

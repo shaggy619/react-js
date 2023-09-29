@@ -94,6 +94,7 @@ h1 {
 textarea {
   font-family: "Poppins";
   padding: 1rem;
+  width: 100%;
 }
 
 .btn {
@@ -103,10 +104,22 @@ textarea {
 
 button {
   border: none;
-  background-color: rgb(119, 8, 255);
-  color: white;
   padding: 0.8rem 1.2rem;
   font-size: 1rem;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.btn .btn-1 {
+  background-color: rgb(119, 8, 255);
+  color: white;
+  box-shadow: 1px 1px 3px rgba(136, 136, 136, 0.89);
+}
+
+.btn .btn-1:hover {
+  background-color: rgba(119, 8, 255, 0.861);
+}
+
+.no-resize {
+  resize: none;
 }
