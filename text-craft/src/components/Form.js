@@ -1,28 +1,51 @@
 import React, { useState } from "react";
 
-export default function Form(props) {
+export default function Form() {
   const [text, changedText] = useState("");
   const handleOnChange = (event) => {
     let newText = event.target.value;
     changedText(newText);
     console.log("Changed");
   };
-  const handleOnFocus = () => {
+  const handleClear = () => {
     changedText("");
   };
-  const handleOnclick = () => {
+
+  const handleUpclick = () => {
     let newText = text.toUpperCase();
     changedText(newText);
   };
+
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     changedText(newText);
   };
 
   const handleCapClick = () => {
-    let newText = text.toLowerCase();
-    changedText(newText);
+    const words = text.split(" ");
+    const capitalizedWord = words.map((word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    });
+    const capitalizedText = capitalizedWord.join(" ");
+    changedText(capitalizedText);
   };
+
+  const handleExtraSpace = () => {
+    let words = text.split(" ");
+    let joinedWords = "";
+    // console.log(words);
+    words.forEach((elem) => {
+      if (elem[0] !== undefined) {
+        joinedWords += elem + " ";
+        console.log(joinedWords);
+      }
+    });
+    changedText(joinedWords);
+  };
+
+  const nonWhitespaceText = text.replace(/\s/g, ""); // Remove all whitespace characters
+  const charCount = nonWhitespaceText.length;
+
   return (
     <>
       <div className="container">
@@ -33,24 +56,29 @@ export default function Form(props) {
             value={text}
             rows={10}
             onChange={handleOnChange}
-            onFocus={handleOnFocus}
             className="no-resize"
           ></textarea>
           <div className="btn">
-            <button className="btn-1" onClick={handleOnclick}>
-              Change To UpperCase
+            <button className="btn-1" onClick={handleUpclick}>
+              UpperCase
             </button>
             <button className="btn-2" onClick={handleLoClick}>
-              Change to LowerCase
+              LowerCase
             </button>
             <button className="btn-3" onClick={handleCapClick}>
-              Capitalize The Text
+              Capitalize
             </button>
-            {/* <button className="btn-4">Reset</button> */}
+            <button className="btn-4" onClick={handleExtraSpace}>
+              Remove Extra Spaces
+            </button>
+            <button className="btn-5" onClick={handleClear}>
+              Reset
+            </button>
           </div>
           <h2 className="summary">Text Summary:</h2>
           <p>
-            {text.split(" ").length} Words and {text.length} Characters
+            {text.trim().split(/\s+/).filter(Boolean).length} Words and
+            {" " + charCount} Letters
           </p>
         </div>
       </div>
