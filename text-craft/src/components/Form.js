@@ -2,11 +2,13 @@ import React, { useState } from "react";
 
 export default function Form() {
   const [text, changedText] = useState("");
+  // const [mode, changeMode] = useState("");
   const handleOnChange = (event) => {
     let newText = event.target.value;
     changedText(newText);
     console.log("Changed");
   };
+
   const handleClear = () => {
     changedText("");
   };
@@ -46,6 +48,8 @@ export default function Form() {
   const nonWhitespaceText = text.replace(/\s/g, ""); // Remove all whitespace characters
   const charCount = nonWhitespaceText.length;
 
+  const handleChangeMode = () => {};
+
   return (
     <>
       <div className="container">
@@ -81,6 +85,10 @@ export default function Form() {
             {" " + charCount} Letters
           </p>
         </div>
+      </div>
+      <div className="mode-icons" onClick={handleChangeMode}>
+        <i className="uil uil-moon"></i>
+        <i className="uil uil-sun"></i>
       </div>
     </>
   );
