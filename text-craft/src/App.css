@@ -47,6 +47,12 @@
 
 body {
   font-family: "Poppins";
+  color: #282c34;
+}
+
+body.dark-mode {
+  background-color: rgb(44, 44, 44);
+  color: #ffffff;
 }
 
 nav {
@@ -90,7 +96,6 @@ h1 {
   font-size: 1.6rem;
   text-align: center;
   margin: 1rem 0;
-  color: #282c34;
 }
 
 textarea {
@@ -161,11 +166,6 @@ button {
   background-color: rgb(206, 6, 6);
 }
 
-h2,
-p {
-  color: #282c34;
-}
-
 .summary {
   margin-top: 1rem;
   font-size: 1.2rem;
@@ -190,15 +190,16 @@ p {
   bottom: 2rem;
   cursor: pointer;
   padding-left: 5px;
+  box-shadow: 0 0 20px white;
 }
 
-.uil-moon {
+/* .uil-moon {
   display: none;
 }
 
 .uil-sun {
   display: none;
-}
+} */
 
 .moon-icon:hover {
   background-color: rgb(20, 20, 20);

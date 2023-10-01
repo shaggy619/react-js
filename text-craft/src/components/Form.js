@@ -2,7 +2,9 @@ import React, { useState } from "react";
 
 export default function Form() {
   const [text, changedText] = useState("");
-  // const [mode, changeMode] = useState("");
+  const [isDarkMode, setIsDarkMode] = useState(false); // Track dark mode state
+  const [isMoonVisible, setIsMoonVisible] = useState(true);
+
   const handleOnChange = (event) => {
     let newText = event.target.value;
     changedText(newText);
@@ -35,7 +37,6 @@ export default function Form() {
   const handleExtraSpace = () => {
     let words = text.split(" ");
     let joinedWords = "";
-    // console.log(words);
     words.forEach((elem) => {
       if (elem[0] !== undefined) {
         joinedWords += elem + " ";
@@ -48,7 +49,16 @@ export default function Form() {
   const nonWhitespaceText = text.replace(/\s/g, ""); // Remove all whitespace characters
   const charCount = nonWhitespaceText.length;
 
-  const handleChangeMode = () => {};
+  const handleChangeMode = () => {
+    setIsMoonVisible(!isMoonVisible);
+    // Toggle dark mode
+    setIsDarkMode(!isDarkMode);
+    if (isDarkMode) {
+      document.body.classList.remove("dark-mode");
+    } else {
+      document.body.classList.add("dark-mode");
+    }
+  };
 
   return (
     <>
@@ -87,8 +97,16 @@ export default function Form() {
         </div>
       </div>
       <div className="mode-icons" onClick={handleChangeMode}>
-        <i className="uil uil-moon"></i>
-        <i className="uil uil-sun"></i>
+        {isMoonVisible ? (
+          <i className="uil uil-moon" style={{ display: "flex" }}></i>
+        ) : (
+          <i className="uil uil-moon" style={{ display: "none" }}></i>
+        )}
+        {isMoonVisible ? (
+          <i className="uil uil-sun" style={{ display: "none" }}></i>
+        ) : (
+          <i className="uil uil-sun" style={{ display: "flex" }}></i>
+        )}
       </div>
     </>
   );
