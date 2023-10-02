@@ -60,6 +60,12 @@ export default function Form() {
     }
   };
 
+  const handleCopyText = () => {
+    let text = document.getElementById("textArea");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  };
+
   return (
     <>
       <div className="container">
@@ -71,7 +77,9 @@ export default function Form() {
             rows={10}
             onChange={handleOnChange}
             className="no-resize"
+            id="textArea"
           ></textarea>
+          <i onClick={handleCopyText} class="uil uil-clipboard-alt"></i>
           <div className="btn">
             <button className="btn-1" onClick={handleUpclick}>
               UpperCase
