@@ -64,6 +64,7 @@ export default function Form() {
     let text = document.getElementById("textArea");
     text.select();
     navigator.clipboard.writeText(text.value);
+    alert("Copied to Clipboard!");
   };
 
   return (
