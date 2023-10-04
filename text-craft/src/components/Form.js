@@ -75,7 +75,7 @@ export default function Form() {
   const handleCopyText = () => {
     let text = document.getElementById("textArea");
     text.select();
-    navigator.clipboard.writeText(text.value);
+    document.execCommand("copy");
     alert("Copied to Clipboard!");
   };
 

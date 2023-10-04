@@ -125,7 +125,7 @@ button {
   cursor: pointer;
   /* display: inline-block; */
   /* margin-right: 1rem; */
-  box-shadow: 1px 1px 3px rgba(136, 136, 136, 0.89);
+  box-shadow: 1px 1px 3px rgba(54, 54, 54, 0.89);
 }
 
 .btn .btn-1 {
@@ -232,6 +232,12 @@ button {
   margin-right: 0.4rem;
 }
 
+.mobile-menu .uil {
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
 .uil-clipboard-alt.dark-mode {
   color: white;
 }
@@ -266,6 +272,10 @@ button {
   .menu-items {
     display: none;
   }
+
+  nav {
+    padding: 1rem 2rem;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -274,6 +284,10 @@ button {
   }
   textarea {
     height: 25vh;
+  }
+
+  nav {
+    padding: 0.8rem 1rem;
   }
 }
 
