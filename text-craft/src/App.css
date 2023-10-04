@@ -101,8 +101,14 @@ h1 {
 textarea {
   font-family: "Poppins";
   padding: 1rem;
-  padding-right: 2.5rem;
+  padding-right: 1.8rem;
   width: 100%;
+  border-radius: 5px;
+}
+
+textarea.dark-mode {
+  background-color: rgb(58, 59, 60);
+  color: white;
 }
 
 .btn {
@@ -213,10 +219,69 @@ button {
 } */
 
 .uil-clipboard-alt {
-  position: absolute;
-  top: 10rem;
-  right: 20rem;
   cursor: pointer;
   font-size: 1.5rem;
   color: rgb(49, 49, 49);
+  z-index: 10;
+}
+
+.clipboard {
+  display: flex;
+  justify-content: flex-end;
+  height: 0;
+  margin-right: 0.4rem;
+}
+
+.uil-clipboard-alt.dark-mode {
+  color: white;
+}
+
+@media screen and (max-width: 1200px) {
+  .btn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .container {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .btn {
+    grid-template-columns: 1fr;
+  }
+  h1,
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .summary {
+    font-size: 1rem;
+  }
+
+  .menu-items {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    width: 90vw;
+  }
+  textarea {
+    height: 25vh;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    width: 95vw;
+  }
+  textarea {
+    height: 20vh;
+  }
 }

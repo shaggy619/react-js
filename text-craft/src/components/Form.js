@@ -2,29 +2,33 @@ import React, { useState } from "react";
 
 export default function Form() {
   const [text, changedText] = useState("");
-  const [isDarkMode, setIsDarkMode] = useState(false); // Track dark mode state
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMoonVisible, setIsMoonVisible] = useState(true);
 
+  //Function to change the text on the textArea as we keep typing
   const handleOnChange = (event) => {
     let newText = event.target.value;
     changedText(newText);
-    console.log("Changed");
   };
 
+  //Function to clear text from the textArea
   const handleClear = () => {
     changedText("");
   };
 
+  //Function to change text to Uppercase
   const handleUpclick = () => {
     let newText = text.toUpperCase();
     changedText(newText);
   };
 
+  //Function to change text to Lowercase
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     changedText(newText);
   };
 
+  //Function to Capitalize the text
   const handleCapClick = () => {
     const words = text.split(" ");
     const capitalizedWord = words.map((word) => {
@@ -34,13 +38,13 @@ export default function Form() {
     changedText(capitalizedText);
   };
 
+  //Function to remove extra spaces
   const handleExtraSpace = () => {
     let words = text.split(" ");
     let joinedWords = "";
     words.forEach((elem) => {
       if (elem[0] !== undefined) {
         joinedWords += elem + " ";
-        console.log(joinedWords);
       }
     });
     changedText(joinedWords);
@@ -49,17 +53,25 @@ export default function Form() {
   const nonWhitespaceText = text.replace(/\s/g, ""); // Remove all whitespace characters
   const charCount = nonWhitespaceText.length;
 
+  //Function to switch between dark mode and light mode
   const handleChangeMode = () => {
+    let textBox = document.getElementById("textArea");
+    let clipboard = document.querySelector(".uil-clipboard-alt");
     setIsMoonVisible(!isMoonVisible);
     // Toggle dark mode
     setIsDarkMode(!isDarkMode);
     if (isDarkMode) {
       document.body.classList.remove("dark-mode");
+      textBox.classList.remove("dark-mode");
+      clipboard.classList.remove("dark-mode");
     } else {
       document.body.classList.add("dark-mode");
+      textBox.classList.add("dark-mode");
+      clipboard.classList.add("dark-mode");
     }
   };
 
+  //Function to copy text from textArea to clipboard
   const handleCopyText = () => {
     let text = document.getElementById("textArea");
     text.select();
@@ -72,6 +84,9 @@ export default function Form() {
       <div className="container">
         <div>
           <h1>Enter Your Text To Transform</h1>
+          <span className="clipboard">
+            <i onClick={handleCopyText} className="uil uil-clipboard-alt"></i>
+          </span>
           <textarea
             placeholder="Enter Text Here..."
             value={text}
@@ -80,7 +95,7 @@ export default function Form() {
             className="no-resize"
             id="textArea"
           ></textarea>
-          <i onClick={handleCopyText} class="uil uil-clipboard-alt"></i>
+
           <div className="btn">
             <button className="btn-1" onClick={handleUpclick}>
               UpperCase
