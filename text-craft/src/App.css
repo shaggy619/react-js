@@ -274,6 +274,10 @@ button {
     display: none;
   }
 
+  .mobile-menu .uil {
+    display: flex;
+  }
+
   nav {
     padding: 1rem 2rem;
   }
@@ -289,10 +293,6 @@ button {
 
   nav {
     padding: 0.8rem 1rem;
-  }
-
-  .mobile-menu .uil {
-    display: flex;
   }
 }
 
