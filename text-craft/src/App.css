@@ -236,6 +236,7 @@ button {
   color: white;
   font-size: 2rem;
   cursor: pointer;
+  display: none;
 }
 
 .uil-clipboard-alt.dark-mode {
@@ -288,6 +289,10 @@ button {
 
   nav {
     padding: 0.8rem 1rem;
+  }
+
+  .mobile-menu .uil {
+    display: flex;
   }
 }
 
