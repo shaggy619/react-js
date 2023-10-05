@@ -4,6 +4,7 @@ export default function Form() {
   const [text, changedText] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMoonVisible, setIsMoonVisible] = useState(true);
+  const [altTxt, setAltTxt] = useState("Copied to Clipboard!");
 
   //Function to change the text on the textArea as we keep typing
   const handleOnChange = (event) => {
@@ -14,18 +15,21 @@ export default function Form() {
   //Function to clear text from the textArea
   const handleClear = () => {
     changedText("");
+    setAltTxt("Cleared All Text!");
   };
 
   //Function to change text to Uppercase
   const handleUpclick = () => {
     let newText = text.toUpperCase();
     changedText(newText);
+    setAltTxt("Changed to Uppercase!");
   };
 
   //Function to change text to Lowercase
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     changedText(newText);
+    setAltTxt("Changed to Lowercase!");
   };
 
   //Function to Capitalize the text
@@ -36,6 +40,7 @@ export default function Form() {
     });
     const capitalizedText = capitalizedWord.join(" ");
     changedText(capitalizedText);
+    setAltTxt("Text Capitalized!");
   };
 
   //Function to remove extra spaces
@@ -48,6 +53,7 @@ export default function Form() {
       }
     });
     changedText(joinedWords);
+    setAltTxt("Removed Extra Spaces!");
   };
 
   const nonWhitespaceText = text.replace(/\s/g, ""); // Remove all whitespace characters
@@ -76,7 +82,11 @@ export default function Form() {
     let text = document.getElementById("textArea");
     text.select();
     document.execCommand("copy");
-    alert("Copied to Clipboard!");
+    if (text.value.length === 0) {
+      setAltTxt("Nothing to Copy!");
+    } else {
+      setAltTxt("Copied to Clipboard!");
+    }
   };
 
   return (
@@ -84,6 +94,9 @@ export default function Form() {
       <div className="container">
         <div>
           <h1>Enter Your Text To Transform</h1>
+          <span className="alert-message">
+            <p>{altTxt}</p>
+          </span>
           <span className="clipboard">
             <i onClick={handleCopyText} className="uil uil-clipboard-alt"></i>
           </span>

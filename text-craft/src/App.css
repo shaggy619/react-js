@@ -243,6 +243,25 @@ button {
   color: white;
 }
 
+.alert-message {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.alert-message p {
+  /* display: inline-block; */
+  background-color: #282c34;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 22px;
+  box-shadow: 1px 1px 4px rgb(53, 53, 53);
+  /* display: none; */
+}
+
 @media screen and (max-width: 1200px) {
   .btn {
     display: grid;
@@ -294,6 +313,14 @@ button {
   nav {
     padding: 0.8rem 1rem;
   }
+
+  .alert-message {
+    top: 33%;
+  }
+
+  .alert-message p {
+    font-size: 0.7rem;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -302,5 +329,12 @@ button {
   }
   textarea {
     height: 20vh;
+  }
+  .alert-message {
+    top: 35%;
+  }
+
+  .alert-message p {
+    font-size: 0.6rem;
   }
 }
