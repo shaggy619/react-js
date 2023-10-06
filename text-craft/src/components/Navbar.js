@@ -28,7 +28,7 @@ export default function Navbar(props) {
         </ul>
         <ul className="mobile-menu">
           <li>
-            <i class="uil uil-list-ui-alt"></i>
+            <i className="uil uil-list-ui-alt"></i>
           </li>
         </ul>
       </div>

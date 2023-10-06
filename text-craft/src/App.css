@@ -331,10 +331,6 @@ button {
     height: 20vh;
   }
   .alert-message {
-    top: 35%;
-  }
-
-  .alert-message p {
-    font-size: 0.6rem;
+    top: 33%;
   }
 }

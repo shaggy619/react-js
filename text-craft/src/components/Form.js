@@ -1,10 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 export default function Form() {
   const [text, changedText] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMoonVisible, setIsMoonVisible] = useState(true);
   const [altTxt, setAltTxt] = useState("Copied to Clipboard!");
+  const alertMessageRef = useRef(null);
+  const textContentRef = useRef(null);
+  //Hide alert message
+  let alertTimeout;
+  const hideAlertMsg = () => {
+    clearTimeout(alertTimeout);
+    alertTimeout = setTimeout(() => {
+      alertMessageRef.current.style.display = "none";
+    }, 1000);
+  };
+
+  //Display Alert message
+  const alertMsg = (text1, text2) => {
+    alertMessageRef.current.style.display = "block";
+    if (textContentRef.current.value.length !== 0) {
+      setAltTxt(text1);
+    } else {
+      setAltTxt(text2);
+    }
+    hideAlertMsg();
+  };
 
   //Function to change the text on the textArea as we keep typing
   const handleOnChange = (event) => {
@@ -15,21 +36,21 @@ export default function Form() {
   //Function to clear text from the textArea
   const handleClear = () => {
     changedText("");
-    setAltTxt("Cleared All Text!");
+    alertMsg("Cleared All Text!", "Nothing To Clear!");
   };
 
   //Function to change text to Uppercase
   const handleUpclick = () => {
     let newText = text.toUpperCase();
     changedText(newText);
-    setAltTxt("Changed to Uppercase!");
+    alertMsg("Changed To Uppercase!", "Enter Text First!");
   };
 
   //Function to change text to Lowercase
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     changedText(newText);
-    setAltTxt("Changed to Lowercase!");
+    alertMsg("Changed To Lowercase!", "Enter Text First!");
   };
 
   //Function to Capitalize the text
@@ -40,7 +61,7 @@ export default function Form() {
     });
     const capitalizedText = capitalizedWord.join(" ");
     changedText(capitalizedText);
-    setAltTxt("Text Capitalized!");
+    alertMsg("Text Capitalized!", "Enter Text First!");
   };
 
   //Function to remove extra spaces
@@ -53,7 +74,8 @@ export default function Form() {
       }
     });
     changedText(joinedWords);
-    setAltTxt("Removed Extra Spaces!");
+
+    alertMsg("Removed Extra Spaces!", "Enter Text First!");
   };
 
   const nonWhitespaceText = text.replace(/\s/g, ""); // Remove all whitespace characters
@@ -79,14 +101,10 @@ export default function Form() {
 
   //Function to copy text from textArea to clipboard
   const handleCopyText = () => {
-    let text = document.getElementById("textArea");
-    text.select();
+    let textContent = document.getElementById("textArea");
+    textContent.select();
     document.execCommand("copy");
-    if (text.value.length === 0) {
-      setAltTxt("Nothing to Copy!");
-    } else {
-      setAltTxt("Copied to Clipboard!");
-    }
+    alertMsg("Copied To Clipboard!", "Nothing to Copy!");
   };
 
   return (
@@ -94,7 +112,7 @@ export default function Form() {
       <div className="container">
         <div>
           <h1>Enter Your Text To Transform</h1>
-          <span className="alert-message">
+          <span className="alert-message" ref={alertMessageRef}>
             <p>{altTxt}</p>
           </span>
           <span className="clipboard">
@@ -107,6 +125,7 @@ export default function Form() {
             onChange={handleOnChange}
             className="no-resize"
             id="textArea"
+            ref={textContentRef}
           ></textarea>
 
           <div className="btn">
