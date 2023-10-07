@@ -7,7 +7,7 @@ export default function Form() {
   const [altTxt, setAltTxt] = useState("Copied to Clipboard!");
   const alertMessageRef = useRef(null);
   const textContentRef = useRef(null);
-  //Hide alert message
+  //Hide Alert message
   let alertTimeout;
   const hideAlertMsg = () => {
     clearTimeout(alertTimeout);
