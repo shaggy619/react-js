@@ -2,8 +2,6 @@ import React, { useState, useRef } from "react";
 
 export default function Form() {
   const [text, changedText] = useState("");
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isMoonVisible, setIsMoonVisible] = useState(true);
   const [altTxt, setAltTxt] = useState("Copied to Clipboard!");
   const alertMessageRef = useRef(null);
   const textContentRef = useRef(null);
@@ -81,24 +79,6 @@ export default function Form() {
   const nonWhitespaceText = text.replace(/\s/g, ""); // Remove all whitespace characters
   const charCount = nonWhitespaceText.length;
 
-  //Function to switch between dark mode and light mode
-  const handleChangeMode = () => {
-    let textBox = document.getElementById("textArea");
-    let clipboard = document.querySelector(".uil-clipboard-alt");
-    setIsMoonVisible(!isMoonVisible);
-    // Toggle dark mode
-    setIsDarkMode(!isDarkMode);
-    if (isDarkMode) {
-      document.body.classList.remove("dark-mode");
-      textBox.classList.remove("dark-mode");
-      clipboard.classList.remove("dark-mode");
-    } else {
-      document.body.classList.add("dark-mode");
-      textBox.classList.add("dark-mode");
-      clipboard.classList.add("dark-mode");
-    }
-  };
-
   //Function to copy text from textArea to clipboard
   const handleCopyText = () => {
     let textContent = document.getElementById("textArea");
@@ -151,18 +131,6 @@ export default function Form() {
             {" " + charCount} Letters
           </p>
         </div>
-      </div>
-      <div className="mode-icons" onClick={handleChangeMode}>
-        {isMoonVisible ? (
-          <i className="uil uil-moon" style={{ display: "flex" }}></i>
-        ) : (
-          <i className="uil uil-moon" style={{ display: "none" }}></i>
-        )}
-        {isMoonVisible ? (
-          <i className="uil uil-sun" style={{ display: "none" }}></i>
-        ) : (
-          <i className="uil uil-sun" style={{ display: "flex" }}></i>
-        )}
       </div>
     </>
   );

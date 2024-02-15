@@ -262,6 +262,25 @@ button {
   /* display: none; */
 }
 
+.about-style {
+  width: 60%;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+}
+
+.about-style h2 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.about-style p {
+  text-align: justify;
+}
+
+.about-content {
+  margin-bottom: 1.5rem;
+}
+
 @media screen and (max-width: 1200px) {
   .btn {
     display: grid;
