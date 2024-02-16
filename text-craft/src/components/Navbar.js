@@ -17,22 +17,16 @@ export default function Navbar(props) {
     setIsDarkMode(!isDarkMode);
     if (isDarkMode) {
       document.body.classList.remove("dark-mode");
-      if (textBox) {
-        textBox.classList.toggle("dark-mode", !isDarkMode);
-      }
 
-      if (clipboard) {
-        clipboard.classList.toggle("dark-mode", !isDarkMode);
-      }
+      textBox.classList.toggle("dark-mode", !isDarkMode);
+
+      clipboard.classList.toggle("dark-mode", !isDarkMode);
     } else {
       document.body.classList.add("dark-mode");
-      if (textBox) {
-        textBox.classList.toggle("dark-mode", !isDarkMode);
-      }
 
-      if (clipboard) {
-        clipboard.classList.toggle("dark-mode", !isDarkMode);
-      }
+      textBox.classList.toggle("dark-mode", !isDarkMode);
+
+      clipboard.classList.toggle("dark-mode", !isDarkMode);
     }
   };
   return (
