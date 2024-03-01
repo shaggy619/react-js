@@ -13,6 +13,7 @@ function App() {
         <Routes>
           <Route exact path="/about" element={<About />}></Route>
           <Route exact path="/" element={<Form />}></Route>
+          <Route exact path="/react-js" element={<Form />}></Route>
         </Routes>
       </BrowserRouter>
     </>
