@@ -1,5 +1,7 @@
 import "./App.css";
 
+//Book details as array of objects
+
 const books = [
   {
     img: "https://m.media-amazon.com/images/I/5112eIqM9pL._SY445_SX342_.jpg",
