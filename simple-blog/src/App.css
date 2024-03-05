@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  min-height: 500px;
+}
+
+.logo {
+  font-weight: 500;
+}
+
+.navbar-nav {
+  justify-content: flex-end;
+}
+
+.navbar-nav li {
+  padding: 0 0.5rem;
+}
+
+.navbar {
+  padding: 0.8rem 2rem;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+  text-decoration: underline;
+  color: #6b4ce6 !important;
+}
+
+.hero {
+  position: relative;
+  top: 7rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  gap: 2rem;
+  min-height: 400px;
+}
+
+.btn {
+  color: white;
+  background-color: #6b4ce6;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+}
+
+.btn2 a {
+  color: white;
+  background-color: #6b4ce6;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+}
+
+.name {
+  color: #6b4ce6;
+}
+
+.btn:hover,
+.btn2 a:hover {
+  color: white;
+  background-color: #6b4cd6;
+}
+
+.footer-social-icons {
+  display: flex;
+  margin: 0;
+}
+
+.footer-social-icons li {
+  padding: 0 0.8rem;
+}
+
+.footer-social-icons li a {
+  color: dimgray;
+  font-size: 1.2em;
+}
+
+.footer-social-icons li a:hover,
+.logo:hover {
+  color: #6b4cd6;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2.3rem;
+}
+
+@media screen and (max-width: 550px) {
+  .hero {
+    top: 2rem;
+    display: block;
+  }
+
+  .vector-img img {
+    width: 20em;
+    margin-top: 1.5rem;
+  }
+
+  .footer-content {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  ul.footer-social-icons {
+    width: 40vw;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  ul.footer-social-icons li {
+    padding: 0 0.5em;
+  }
+}
+
+.blogs {
+  display: grid;
+  gap: 1rem;
+}
+
+.blogs-content {
+  width: 70vw;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.blogs-content:hover {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.58);
+}
