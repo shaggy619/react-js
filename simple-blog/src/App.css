@@ -74,6 +74,10 @@ main {
   margin-top: 1rem;
 }
 
+.btn2 {
+  padding: 0.5rem 0;
+}
+
 .btn2 a {
   color: white;
   background-color: #6b4ce6;

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Blogs from "./Blogs";
 
 export default function Hero() {
-  const blogs = [
+  const [blogs, setBlocks] = useState([
     {
       title: "My New Website",
       body: "Lorem Epsum....",
@@ -21,14 +21,18 @@ export default function Hero() {
       author: "Kendrick",
       id: 3,
     },
-  ];
+  ]);
+
+  const handleDelete = (id) => {
+    const newBlogs = blogs.filter((blog) => {
+      return id !== blog.id;
+    });
+    setBlocks(newBlogs);
+  };
+
   return (
     <>
-      <div className="blogs">
-        {blogs.map((blog) => {
-          return <Blogs {...blog} key={blog.id} />;
-        })}
-      </div>
+      <Blogs blogs={blogs} handleDelete={handleDelete} />
     </>
   );
 }
