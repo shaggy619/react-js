@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Blogs(props) {
-  const { blogs, handleDelete } = props;
+  const { blogs } = props;
   return (
     <>
       <div className="blogs">
@@ -11,9 +11,6 @@ export default function Blogs(props) {
               <h1>{blog.title}</h1>
               <p>{blog.body}</p>
               <p>{blog.author}</p>
-              <button className="btn" onClick={() => handleDelete(blog.id)}>
-                Delete
-              </button>
             </div>
           );
         })}
