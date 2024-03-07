@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Blogs from "./Blogs";
 
 export default function Hero() {
@@ -23,6 +23,12 @@ export default function Hero() {
     },
   ]);
 
+  const [name, setName] = useState("Samyam");
+
+  const changeName = () => {
+    setName("Kritan");
+  };
+
   const handleDelete = (id) => {
     const newBlogs = blogs.filter((blog) => {
       return id !== blog.id;
@@ -30,9 +36,15 @@ export default function Hero() {
     setBlocks(newBlogs);
   };
 
+  useEffect(() => {
+    console.log("The dom was re-rendered!");
+  }, [name]);
+
   return (
     <>
       <Blogs blogs={blogs} handleDelete={handleDelete} />
+      <button onClick={changeName}>Change Name</button>
+      <p>{name}</p>
     </>
   );
 }
