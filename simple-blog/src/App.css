@@ -87,6 +87,10 @@ main {
   border-radius: 4px;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .name {
   color: #6b4ce6;
 }

@@ -4,6 +4,8 @@ import Blogs from "./Blogs";
 export default function Hero() {
   const [blogs, setBlocks] = useState(null);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   // const handleDelete = (id) => {
   //   const newBlogs = blogs.filter((blog) => {
   //     return id !== blog.id;
@@ -18,8 +20,14 @@ export default function Hero() {
       })
       .then((data) => {
         setBlocks(data);
+        setIsLoading(false);
       });
   }, []);
 
-  return <>{blogs && <Blogs blogs={blogs} />}</>;
+  return (
+    <>
+      {isLoading && <div className="text-center">Loading...</div>}
+      {blogs && <Blogs blogs={blogs} />}
+    </>
+  );
 }
