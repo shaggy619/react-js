@@ -6,6 +6,8 @@ export default function Hero() {
 
   const [isLoading, setIsLoading] = useState(true);
 
+  const [error, setError] = useState(null);
+
   // const handleDelete = (id) => {
   //   const newBlogs = blogs.filter((blog) => {
   //     return id !== blog.id;
@@ -14,20 +16,33 @@ export default function Hero() {
   // };
 
   useEffect(() => {
-    fetch("http://localhost:8000/blogs")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setBlocks(data);
-        setIsLoading(false);
-      });
+    setTimeout(() => {
+      fetch("http://localhost:8000/blogss")
+        .then((res) => {
+          if (!res.ok) {
+            throw Error("Failed to fetch resource!");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setBlocks(data);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setIsLoading(false);
+        });
+    }, 1000);
   }, []);
 
   return (
     <>
-      {isLoading && <div className="text-center">Loading...</div>}
-      {blogs && <Blogs blogs={blogs} />}
+      <div className="main-content">
+        {" "}
+        {error && <div className="text-center warning">{error}</div>}
+        {isLoading && <div className="text-center">Loading...</div>}
+        {blogs && <Blogs blogs={blogs} />}
+      </div>
     </>
   );
 }

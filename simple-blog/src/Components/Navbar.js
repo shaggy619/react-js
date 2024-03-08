@@ -12,7 +12,7 @@ export default function Navbar() {
             asp-action="Index"
             href="/"
           >
-            SomeAim
+            SimpleBlog
           </a>
           <button
             className="navbar-toggler"
@@ -46,7 +46,7 @@ export default function Navbar() {
                   asp-action="Privacy"
                   href="/"
                 >
-                  Skills
+                  About
                 </a>
               </li>
               <li>

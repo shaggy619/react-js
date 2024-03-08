@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="border-top footer text-muted footer-content">
       <div className="container footer-text">
-        &copy; 2024 - SomeAim - <a href="/">Privacy</a>
+        &copy; 2024 - SimpleBlog - <a href="/">Privacy</a>
       </div>
       <div>
         <ul className="footer-social-icons">

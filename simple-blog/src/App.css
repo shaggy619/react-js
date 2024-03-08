@@ -91,6 +91,14 @@ main {
   text-align: center;
 }
 
+.warning {
+  color: red;
+}
+
+.main-content {
+  min-height: 450px;
+}
+
 .name {
   color: #6b4ce6;
 }
