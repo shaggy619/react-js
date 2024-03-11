@@ -1,19 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
     <header>
       <nav className="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div className="container-fluid">
-          <a
-            className="navbar-brand logo"
-            asp-area=""
-            asp-controller="Home"
-            asp-action="Index"
-            href="/"
-          >
+          <Link className="navbar-brand logo" to="/">
             SimpleBlog
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -28,26 +23,14 @@ export default function Navbar() {
           <div className="navbar-collapse collapse d-sm-inline-flex justify-content-between">
             <ul className="navbar-nav flex-grow-1">
               <li className="nav-item">
-                <a
-                  className="nav-link text-dark"
-                  asp-area=""
-                  asp-controller="Home"
-                  asp-action="Index"
-                  href="/"
-                >
+                <Link className="nav-link text-dark" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
-                  className="nav-link text-dark"
-                  asp-area=""
-                  asp-controller="Home"
-                  asp-action="Privacy"
-                  href="/"
-                >
+                <Link className="nav-link text-dark" to="/create">
                   About
-                </a>
+                </Link>
               </li>
               <li>
                 <div className="btn2">
