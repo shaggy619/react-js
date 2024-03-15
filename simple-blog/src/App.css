@@ -52,6 +52,10 @@ main {
   padding: 0.8rem 2rem;
 }
 
+a {
+  text-decoration: none;
+}
+
 .navbar-nav .nav-item:hover .nav-link {
   text-decoration: underline;
   color: #6b4ce6 !important;
