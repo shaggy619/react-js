@@ -19,12 +19,7 @@ export default function BlogDetails() {
         <div className="container">
           <h2>{blog.title}</h2>
           <p>{blog.author}</p>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam iure
-            fugit nemo assumenda odit natus ipsum saepe voluptas explicabo.
-            Laboriosam alias tenetur at adipisci atque velit voluptatibus
-            impedit facere error.
-          </p>
+          <p>{blog.body}</p>
         </div>
       )}
     </div>

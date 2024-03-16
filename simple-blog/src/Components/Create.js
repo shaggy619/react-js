@@ -5,21 +5,38 @@ export default function Create() {
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
-  const [option, setOption] = useState("Samyam");
 
+  const [author, setAuthor] = useState("Samyam");
   const handleAuthorChange = (e) => {
-    setOption(e.target.value);
+    setAuthor(e.target.value);
   };
 
   const [body, setBody] = useState("");
-
   const handleBodyChange = (e) => {
     setBody(e.target.value);
   };
+
+  const [isPending, setIsPending] = useState(false);
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    const blog = { title, body, author };
+    setIsPending(true);
+    fetch("http://localhost:8000/blogs", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(blog),
+    }).then(() => {
+      setTimeout(() => {
+        setIsPending(false);
+      }, 1000);
+    });
+  };
+
   return (
     <div className="container create">
       <h2>Create a new blog.</h2>
-      <form>
+      <form onSubmit={handleOnSubmit}>
         <label htmlFor="title">Blog Title:</label>
         <input
           type="text"
@@ -40,10 +57,12 @@ export default function Create() {
           <option value="Samyam">Samyam</option>
           <option value="Kritan">Kritan</option>
         </select>
-        <button className="btn btn-primary">Create</button>
-        <p>{title}</p>
-        <p>{body}</p>
-        <p>{option}</p>
+        {!isPending && <button className="btn btn-primary">Create</button>}
+        {isPending && (
+          <button className="btn btn-primary" disabled>
+            Creating...{" "}
+          </button>
+        )}
       </form>
     </div>
   );
