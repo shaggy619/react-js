@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Create() {
   const [title, setTitle] = useState("");
@@ -17,6 +18,7 @@ export default function Create() {
   };
 
   const [isPending, setIsPending] = useState(false);
+  const nav = useNavigate();
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -29,6 +31,7 @@ export default function Create() {
     }).then(() => {
       setTimeout(() => {
         setIsPending(false);
+        nav("/");
       }, 1000);
     });
   };
