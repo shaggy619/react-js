@@ -182,3 +182,14 @@ a {
 .blogs-content:hover {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.58);
 }
+
+input,
+textarea,
+select {
+  display: block;
+}
+
+.create {
+  width: 100%;
+  margin: 0 auto;
+}

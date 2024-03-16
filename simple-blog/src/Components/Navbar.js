@@ -34,7 +34,7 @@ export default function Navbar() {
               </li>
               <li>
                 <div className="btn2">
-                  <a href="/">Add Blog</a>
+                  <Link to="/create">Add Blog</Link>
                 </div>
               </li>
             </ul>
