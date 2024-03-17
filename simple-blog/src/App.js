@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Create from "./Components/Create";
 import BlogDetails from "./Components/BlogDetails";
+import ErrorPage from "./Components/ErrorPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/create" exact element={<Create />}></Route>
           <Route path="/blogs" exact element={<Hero />}></Route>
           <Route path="/blogs/:id" exact element={<BlogDetails />}></Route>
+          <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>
